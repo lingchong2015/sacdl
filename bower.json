@@ -1,0 +1,30 @@
+{
+  "name": "sacdl-project",
+  "authors": [
+    "stephen curry"
+  ],
+  "description": "Statistical Analysis of Cryptocurrency Development Languages",
+  "main": "index.js",
+  "keywords": [
+    "Cryptocurrency",
+    "bitcoin",
+    "d3js",
+    "nodejs"
+  ],
+  "license": "mit",
+  "homepage": "https://www.github.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "d3": "~3.5.12",
+    "font-awesome": "~4.5.0",
+    "jquery": "^3.3.1"
+  }
+}
