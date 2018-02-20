@@ -1,0 +1,37 @@
+{
+  "name": "sacdl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lingchong2015/sacdl.git"
+  },
+  "author": "Stephen Curry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lingchong2015/sacdl/issues"
+  },
+  "homepage": "https://github.com/lingchong2015/sacdl#readme",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "event-stream": "^3.3.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-order": "^1.1.1",
+    "gulp-processhtml": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "merge-stream": "^1.0.0"
+  }
+}
