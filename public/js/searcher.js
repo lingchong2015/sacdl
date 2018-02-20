@@ -1,4 +1,4 @@
-var Searcher = (function() {
+var Searcher = (function () {
     var url = '',
         baseApiUrl,
         inputTxt,
@@ -17,16 +17,16 @@ var Searcher = (function() {
             baseApiUrl: 'https://api.github.com/search/repositories'
         },
 
-        init: function() {
+        init: function () {
             inputTxt = d3.select('#search-input');
             searchBtn = d3.select('#search-btn');
             searchMsg = d3.select('#search-msg')
 
             baseApiUrl = this.settings.baseApiUrl;
 
-            searchBtn.on('click', function() {
+            searchBtn.on('click', function () {
                 parseQuery();
-                listeners.forEach(function(listener) {
+                listeners.forEach(function (listener) {
                     try {
                         listener(url);
                     } catch (error) {
@@ -36,7 +36,7 @@ var Searcher = (function() {
             })
         },
 
-        addListener: function(listener) {
+        addListener: function (listener) {
             listeners.push(listener);
         }
     };

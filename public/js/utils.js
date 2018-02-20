@@ -1,8 +1,11 @@
-var Utils = (function() {
+// 模块化编程示范。
+var Utils = (function () {
+    // 局部变量定义。
     var dataSet, treeData;
 
+    // 公共方法，本例中包含了getData()、getBarData()、getStackData()与getTreeData()。
     return {
-        getData: function(data) {
+        getData: function (data) {
             dataSet = data;
             treeData = dataToJson();
         },
@@ -20,15 +23,15 @@ var Utils = (function() {
             }]
         }
         */
-        getBarData: function() {
+        getBarData: function () {
             var items = treeData.children;
             var result = {
-                    labels: [],
-                    series: []
-                },
+                labels: [],
+                series: []
+            },
                 values = [];
 
-            items.forEach(function(item) {
+            items.forEach(function (item) {
                 result.labels.push(item.name);
                 values.push(item.children.length);
             })
@@ -48,7 +51,7 @@ var Utils = (function() {
                              { language: 'ruby', count: 1300 }]
                 ];
                  */
-        getStackData: function() {
+        getStackData: function () {
             var items = treeData.children;
 
             var result = {
@@ -57,7 +60,7 @@ var Utils = (function() {
             }
 
             //1. 确定初始数据
-            items.forEach(function(item) {
+            items.forEach(function (item) {
                 if (item.name === "null") {
                     return
                 };
@@ -84,12 +87,13 @@ var Utils = (function() {
                     }]
             }
            */
-        getTreeData: function() {
+        getTreeData: function () {
             return treeData;
         }
     }
 
-   //provite methods
+    //私有方法，包含了dataToJson()与mergetTo()。
+    //private methods
     function dataToJson() {
         var languages = {};
 
@@ -101,7 +105,7 @@ var Utils = (function() {
         if (dataSet && dataSet.items) {
             var items = dataSet.items;
 
-            items.forEach(function(item, index) {
+            items.forEach(function (item, index) {
                 if (typeof languages[item.language] === "undefined") {
                     languages[item.language] = index;
                 };
@@ -117,7 +121,7 @@ var Utils = (function() {
                     "children": []
                 };
 
-                items.forEach(function(item, index) {
+                items.forEach(function (item, index) {
                     var child = {
                         "name": item.full_name,
                         "watchers_count": item.watchers_count,
@@ -135,7 +139,7 @@ var Utils = (function() {
 
         return result;
     }
- 
+
     function mergeTo(to, from) {
         for (var key in from) {
             if (typeof to[key] === "undefined") {
