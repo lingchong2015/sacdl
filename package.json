@@ -6,15 +6,17 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
   "scripts": {
-    "test": "npm test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lingchong2015/sacdl.git"
   },
-  "author": "Stephen Curry",
+  "author": "future",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lingchong2015/sacdl/issues"
