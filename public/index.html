@@ -10,13 +10,46 @@
     <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="css/app.css" />
+
+    <style type="text/css" rel="stylesheet">
+        .square {
+            background-color: lightblue;
+            cursor: pointer;
+        }
+
+        /* .circle {
+            background-color: orange;
+            cursor: pointer;
+        } */
+
+        .square p
+        /* ,
+        .circle p  */
+        {
+            padding-top: 35%;
+            text-align: center;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
     <!-- /build -->
 </head>
 
 <body>
+    <!-- <div id="s1" class="square"></div>
+    <div id="c1" class="circle"></div>
+    <p id="counter_s1"></p>
+    <p id="counter_c1"></p> -->
+
+    <form>
+        <input type="button" id="growButton" value="Grow">
+    </form>
+    <div id ="squares"></div>
+
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
@@ -27,12 +60,9 @@
                 </button>
                 <a class="navbar-brand" href="https://github.com/imfly/sacdl-project">Github开发语言统计分析</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
     <div class="container">
         <div class="row">
@@ -95,32 +125,149 @@
     <script type="text/javascript" charset="utf-8" src="js/bar.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
     <script type="text/javascript" charset="utf-8">
-            // function Book(title, author, published, hasMovie) {
-            //     this.title = title;
-            //     this.author = author;
-            //     this.published = published;
-            //     this.hasMovie = hasMovie;
+        // function Book(title, author, published, hasMovie) {
+        //     this.title = title;
+        //     this.author = author;
+        //     this.published = published;
+        //     this.hasMovie = hasMovie;
 
-            //     this.display = function() {
-            //         console.log(this);
-            //     }
-            // };
+        //     this.display = function() {
+        //         console.log(this);
+        //     }
+        // };
 
-            // var book1 = new Book("The hound of the Baskervilles", "Sir Arthur Conan Doyle", 1901, true);
-            // book1.display();
+        // var book1 = new Book("The hound of the Baskervilles", "Sir Arthur Conan Doyle", 1901, true);
+        // book1.display();
 
-            // var book2 = {
-            //     title: "The Adventures of Sherlock Holmes",
-            //     author: "Sir Arthur Conan Doyle",
-            //     published: 1892, 
-            //     movie: true,
-            //     display: function() {
-            //         console.log(this);
-            //     }
-            // };
-            // book2.display();
+        // var book2 = {
+        //     title: "The Adventures of Sherlock Holmes",
+        //     author: "Sir Arthur Conan Doyle",
+        //     published: 1892, 
+        //     movie: true,
+        //     display: function() {
+        //         console.log(this);
+        //     }
+        // };
+        // book2.display();
 
-            
+        // var n = 0;
+
+        // function Square(id, name, size) {
+        //     // console.log("This at the top of the Square constructor: ");
+        //     // console.log(this);// Called at 2nd, "this" is Square;
+
+        //     this.id = id;
+        //     this.name = name;
+        //     this.size = size;
+        //     this.numClicks = 0;
+
+        //     this.display = function () {
+        //         // console.log("This in the Square's display method: ");
+        //         // console.log(this);// Called at 5th, "this" is Square;
+
+        //         var el = document.getElementById(this.id);
+        //         el.style.width = this.size + "px";
+        //         el.style.height = this.size + "px";
+        //         el.innerHTML = "<p>" + this.name + "</p>";
+        //         console.log(this.name + " has size " + this.size + ", and is a " + this.constructor.name);
+        //     };
+
+        //     this.click = function() {
+        //         // console.log("This in the Square's click method: ");
+        //         // console.log(this);
+        //         ++this.numClicks;
+        //         document.getElementById("counter_" + this.id).innerHTML = "You've clicked " + this.numClicks + " times on " + this.name;
+        //     };
+
+        //     this.AddAndDisplay = function() {
+        //         var el = document.createElement("div");
+        //         el.setAttribute("id", this.id);
+        //         el.setAttribute("class", "square");
+        //         el.style.width = this.size + "px";
+        //         el.style.height = this.size + "px";
+        //         el.innerHTML = "<p>" + this.id + "</p>";
+        //         console.log(this.id + " has size " + this.size + ". and is a " + this.constructor.name);
+        //         document.getElementById("squares").appendChild(el);
+        //     }
+
+        //     // console.log("This at the bottom of the Square constructor: ");
+        //     // console.log(this);// Called at 3rd, "this" is Square;
+        // }
+
+        // function createSquares(n) {
+        //     var size = 10;
+        //     if (n == 0) {
+        //         return;
+        //     }
+
+        //     var child = new Square(("ch" + n), ("ch" + n), n * size);
+        //     child.AddAndDisplay();
+        //     createSquares(n - 1);
+        // }
+
+        // function Circle(id, name, radius) {
+        //     this.id = id;
+        //     this.name = name;
+        //     this.radius = radius;
+        //     this.numClicks = 0;
+
+        //     this.display = function() {
+        //         var el = document.getElementById(this.id);
+        //         el.style.width = (this.radius * 2) + "px";
+        //         el.style.height = (this.radius * 2) + "px";
+        //         el.style.borderRadius = this.radius + "px";
+        //         el.innerHTML = "<p>" + this.name + "</p>";
+        //         console.log(this.name + " has radius " + this.radius + ", and is a " + this.constructor.name);
+        //     };
+
+        //     this.click = function() {
+        //         ++this.numClicks;
+        //         document.getElementById("counter_" + this.id).innerHTML = "You've clicked " + this.numClicks + " times on " + this.name;
+        //     };
+        // }
+
+        // function setupClickHandler(shape) {
+        //     // console.log("This in setupClickHandler: ");
+        //     // console.log(this);// Called at 4th, "this" is Window;
+        //     var elDiv = document.getElementById(shape.id);
+        //     // elDiv.onclick = function () {
+        //     //     console.log("This in click handler: ");
+        //     //     console.log(this);// Called when div which id equals "s1" is clicked, "this" is the div;
+        //     //     ++n;
+        //     //     var counter = document.getElementById("counter_" + shape.id);
+        //     //     counter.innerHTML = "You've clicked " + n + " times.";
+        //     // }
+
+        //     elDiv.onclick = function() {
+        //         // shape.click();
+
+        //         click.call(shape);
+        //     } 
+        // }
+
+        // function click() {
+        //     console.log("This in click function: ");
+        //     console.log(this);
+
+        //     ++this.numClicks;
+        //     document.getElementById("counter_" + this.id).innerHTML = "You've clicked " + this.numClicks + " times on " + this.name;
+        // }
+
+        // window.onload = function() {
+        //     // console.log("This in window.onload: ");
+        //     // console.log(this);// Called at 1st, "this" is Window;
+        //     var square = new Square("s1", "Square one", 100);
+        //     setupClickHandler(square);
+        //     square.display();
+
+        //     var circle = new Circle("c1", "Circle one", 50);
+        //     setupClickHandler(circle);
+        //     circle.display();
+
+        //     createSquares(7);
+        // }
+
+        
     </script>
     <!-- /build -->
 </body>
