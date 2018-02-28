@@ -10,10 +10,24 @@
     <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
     <link type="text/css" rel="stylesheet" href="css/app.css" />
+
+    <style type="text/css" rel="stylesheet">
+        div {
+            position: relative;
+            margin: 10px;
+            background-color: red;
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
     <!-- /build -->
 </head>
 
 <body>
+    <div id="div0"></div>
+    <div id="div1"></div>
+    <div id="div2"></div>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -120,7 +134,21 @@
             // };
             // book2.display();
 
-            
+        window.onload = function() {
+            var numDivs = 3;
+            for (var i = 0; i < numDivs; ++i) {
+                var div  = document.getElementById("div" + i);
+                // div.onclick = function() {
+                //     console.log("You just clicked on div number " + i);
+                // }
+
+                div.onclick = (function(divNum) {
+                    return function() {
+                        console.log("You just clicked on div number " + divNum);
+                    }
+                })(i);
+            }
+        } 
     </script>
     <!-- /build -->
 </body>
